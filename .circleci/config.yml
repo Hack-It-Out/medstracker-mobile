@@ -20,6 +20,9 @@ jobs:
             pnpm i
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/workspace-a
+            - node_modules/workspace-c
       - run:
           name: Run tests
           command: |
