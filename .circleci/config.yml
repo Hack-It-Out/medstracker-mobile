@@ -1,26 +1,23 @@
 version: 2.1
-
 jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: cimg/node:18.8.0
-
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - run:
-          name: Update npm to the latest version
-          command: |
-            sudo pnpm i -g npm@latest
+          name: Update NPM
+          command: "sudo npm install -g npm@5"
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: install app dependencies
-          command: |
-            pnpm i
+          name: Install Dependencies
+          command: npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: Run tests
-          command: |
-            pnpm test
+          command: npm run test
