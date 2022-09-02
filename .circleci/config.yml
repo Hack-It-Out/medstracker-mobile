@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: cimg/node:18.8.0
+
+    steps:
+      - checkout
+      - run:
+          name: Update npm to the latest version
+          command: |
+            sudo pnpm i -g npm@latest
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: install app dependencies
+          command: |
+            pnpm i
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Run tests
+          command: |
+            pnpm test
