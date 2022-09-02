@@ -14,14 +14,12 @@ jobs:
             sudo pnpm i -g npm@latest
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-
       - run:
           name: install app dependencies
           command: |
             pnpm i
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-
       - run:
           name: Run tests
           command: |
