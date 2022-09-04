@@ -6,7 +6,7 @@ import {UpcomingMedsCard} from './cards';
 const UpcomingMeds = () => {
   return (
     <View style={tw`mt-10 px-2`}>
-      <Text style={tw`text-black/50 font-semibold `}>Upcoming Meds</Text>
+      <Text style={tw`text-black/50 font-semibold text-lg`}>Upcoming Meds</Text>
       <ScrollView horizontal style={tw`mt-5`}>
         <UpcomingMedsCard />
         <UpcomingMedsCard />
