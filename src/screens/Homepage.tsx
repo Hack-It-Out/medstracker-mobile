@@ -7,10 +7,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import tw from '../lib/tailwind';
 
 import {AllReminders, UpcomingMeds} from '../components';
-
+import { DaysCard } from '../components/cards';
 
 const Homepage = () => {
   const navigation = useNavigation();
+
 
   const [date, setDate] = useState('');
 
@@ -81,9 +82,7 @@ const Homepage = () => {
           />
         </View>
       </View>
-      <View style={tw`px-2`}>
-        <View style={tw`h-20 bg-[#F13A3B] rounded-lg`}></View>
-      </View>
+      <DaysCard />
       <View style={tw`items-center mt-2`}>
         <Text style={tw`text-black/50`}>{date}</Text>
       </View>

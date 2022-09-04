@@ -4,9 +4,11 @@ import tw from '../../lib/tailwind'
 
 const UpcomingMedsCard = () => {
   return (
-    <TouchableOpacity style={tw`bg-white mr-3 shadow`}>
-        <View style={tw`h-[172px] w-[142px] rounded-full`}>
+    <TouchableOpacity style={tw`bg-white mr-3 shadow px-2 rounded-lg`}>
+        <View style={tw`rounded-full`}>
+        <View style={tw`h-[172px] w-[142px]`}>
             <Text style={tw`text-black`}>Hey Bro</Text>
+        </View>
         </View>
     </TouchableOpacity>
   )
