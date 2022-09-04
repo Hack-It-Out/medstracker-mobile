@@ -10,7 +10,8 @@
     "test:ci": "jest --json --outputFile=jest-report.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "preci": "rm -fr node_modules",
-    "ci": "yarn install --frozen-lockfile"
+    "ci": "yarn install --frozen-lockfile",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.12",
@@ -24,6 +25,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
