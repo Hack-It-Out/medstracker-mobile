@@ -2,6 +2,7 @@ import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
 import React, {useLayoutEffect} from 'react';
 import tw from '../lib/tailwind';
 import {useNavigation} from '@react-navigation/native';
+import { AllReminders, UpcomingMeds } from '../components';
 
 const Homepage = () => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ const Homepage = () => {
     });
   }, []);
   return (
-    <SafeAreaView style={tw`bg-[#DADADA] h-full w-full p-2 space-x-4`}>
+    <SafeAreaView style={tw`bg-[#DADADA] h-full w-full p-2`}>
       <View style={tw`flex-row justify-between items-center px-2 mb-5`}>
         <View>
           <Text style={tw`text-black/90 text-2xl font-semibold w-48`}>
@@ -36,7 +37,9 @@ const Homepage = () => {
       </View>
       <ScrollView>
         {/* Upcoming medication */}
+        <UpcomingMeds />
         {/* All Reminders */}
+        <AllReminders />
       </ScrollView>
     </SafeAreaView>
   );
