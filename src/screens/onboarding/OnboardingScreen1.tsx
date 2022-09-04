@@ -3,7 +3,6 @@ import React, {useLayoutEffect} from 'react';
 import tw from '../../lib/tailwind';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import classNames from 'classnames';
 
 // type Props = NativeStackScreenProps<>;
 type Props = {
