@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
 import React, {useLayoutEffect} from 'react';
 import tw from '../lib/tailwind';
 import {useNavigation} from '@react-navigation/native';
@@ -29,16 +29,15 @@ const Homepage = () => {
         </View>
       </View>
       <View style={tw`px-2`}>
-        <View style={tw`h-20 bg-[#F13A3B] rounded-lg`}>
-
-        </View>
+        <View style={tw`h-20 bg-[#F13A3B] rounded-lg`}></View>
       </View>
       <View style={tw`items-center mt-2`}>
         <Text style={tw`text-black/50`}>Wednesday, 07 September 2022</Text>
       </View>
-      <View>
-        
-      </View>
+      <ScrollView>
+        {/* Upcoming medication */}
+        {/* All Reminders */}
+      </ScrollView>
     </SafeAreaView>
   );
 };
