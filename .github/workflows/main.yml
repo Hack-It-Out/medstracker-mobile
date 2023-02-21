@@ -1,0 +1,55 @@
+name: Pull request into main, dev and preprod
+
+on:
+  pull_request:
+    branches:
+      - "main"
+      - "dev"
+      - "preprod"
+      
+jobs:
+  # First job
+  install-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        
+      - name: Use Node.js 14
+        uses: actions/set-node@v3
+        with:
+          node-version: 14
+          cache: "yarn"
+          
+      - name: Install node_modules
+        run: yarn ci
+        
+      - name: Linting
+        run: yarn lint
+        
+      - name: Unit & Intergration tests
+        run: yarn test:ci
+        
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.6
+        with:
+          coverage-file: ./jest-report.json
+          base-coverage-file: ./jest-report.json
+        
+      
+  # Second Job
+  build-android:
+    needs: install-and-test
+    uses: ./.github/workflows/android-build.yml
+    with:
+      environment: release
+    secrets: inherit
+    
+  # Third job
+  build-ios:
+    needs: install-and-test
+    uses: ./.github/workflows/ios-build.yml
+    with:
+      environment: release
+    secrets: inherit
