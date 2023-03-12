@@ -1,4 +1,4 @@
-# medstracker-mobile
+# MedsTracker
 This is the official mobile app for the medstracker application powered with React Native.
 
 ### Features
@@ -10,4 +10,4 @@ This is the official mobile app for the medstracker application powered with Rea
 
 ##
 
-Made with :heart: from :ke:
+Made with :heart: from :KE:
