@@ -1,11 +1,12 @@
-/* eslint-disable react/react-in-jsx-scope */
-import {View, Text} from 'react-native';
-import {OnboardingScreen} from './src/screens';
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/stack/AppStack';
 
 export default function App() {
   return (
-    <View>
-      <OnboardingScreen />
-    </View>
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
   );
 }
