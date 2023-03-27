@@ -10,4 +10,4 @@ This is the official mobile app for the medstracker application powered with Rea
 
 ##
 
-Made with :heart: from :KE:
+Made with :heart: from 🇰🇪
