@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
 import React from 'react';
 
@@ -65,7 +66,25 @@ const UpcomingReminders = () => {
         {/* Meds Card */}
         {meds?.map(med => (
           <TouchableOpacity
-            className="h-[172px] w-[140px] border rounded-md px-2 py-3 justify-between"
+            style={{
+              height: 172,
+              width: 140,
+              // borderWidth: 1,
+              borderRadius: 10,
+              padding: 10,
+              marginHorizontal: 10,
+              marginVertical: 10,
+              justifyContent: 'space-between',
+              elevation: 10,
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 1,
+                height: 3,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              backgroundColor: '#fff',
+            }}
             key={med.id}
             onPress={med._self}>
             <View>
