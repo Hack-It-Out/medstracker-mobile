@@ -8,14 +8,16 @@ import {
   ProfileScreen,
 } from '../screens';
 
-import Home from '../assets/Home.svg';
+import {HomeIcon, CalendarDaysIcon, UserIcon} from 'react-native-heroicons/mini';
+
 import AddMeds from '../assets/Meds.svg';
-import Calendar from '../assets/Calendar.svg';
-import Profile from '../assets/User.svg';
 
 const Tabs = createBottomTabNavigator();
 
 const BottomStack = () => {
+  let active_color = '#F13A3B';
+  let inactive_color = '#BDBDBD';
+
   return (
     <Tabs.Navigator
       screenOptions={{
@@ -42,12 +44,16 @@ const BottomStack = () => {
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
             size = 30;
-            color = 'blue';
+            // color = '';
 
             if (focused) {
-              iconName = <Home width={size} height={size} fill={color} />;
+              iconName = (
+                <HomeIcon width={size} height={size} fill={active_color} />
+              );
             } else {
-              iconName = <Home width={size} height={size} fill={color} />;
+              iconName = (
+                <HomeIcon width={size} height={size} fill={inactive_color} />
+              );
             }
             return iconName;
           },
@@ -58,15 +64,14 @@ const BottomStack = () => {
         component={AddMedsScreen}
         options={{
           tabBarLabel: 'Add Meds',
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({focused, size}) => {
             let iconName;
             size = 30;
-            color = 'blue';
 
             if (focused) {
-              iconName = <AddMeds width={size} height={size} fill={color} />;
+              iconName = <AddMeds width={size} height={size} fill={active_color} />;
             } else {
-              iconName = <AddMeds width={size} height={size} fill={color} />;
+              iconName = <AddMeds width={size} height={size} fill={inactive_color} />;
             }
             return iconName;
           },
@@ -83,9 +88,9 @@ const BottomStack = () => {
             color = 'grey';
 
             if (focused) {
-              iconName = <Calendar width={size} height={size} fill={color} />;
+              iconName = <CalendarDaysIcon width={size} height={size} fill={active_color} />;
             } else {
-              iconName = <Calendar width={size} height={size} fill={color} />;
+              iconName = <CalendarDaysIcon width={size} height={size} fill={inactive_color} />;
             }
             return iconName;
           },
@@ -96,15 +101,14 @@ const BottomStack = () => {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({focused, size}) => {
             let iconName;
             size = 30;
-            color = 'blue';
 
             if (focused) {
-              iconName = <Profile width={size} height={size} fill={color} />;
+              iconName = <UserIcon width={size} height={size} fill={active_color} />;
             } else {
-              iconName = <Profile width={size} height={size} fill={color} />;
+              iconName = <UserIcon width={size} height={size} fill={inactive_color} />;
             }
             return iconName;
           },

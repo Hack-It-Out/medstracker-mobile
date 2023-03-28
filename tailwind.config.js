@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable comma-dangle */
 /* eslint-disable prettier/prettier */
 /** @type {import('tailwindcss').Config} */

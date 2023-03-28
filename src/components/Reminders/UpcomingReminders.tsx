@@ -62,7 +62,14 @@ const UpcomingReminders = () => {
       <Text className="text-gray-600 text-[18px]">Upcoming</Text>
 
       {/* ScrollView */}
-      <ScrollView horizontal className="space-x-3 py-5">
+      <ScrollView
+        horizontal
+        className="space-x-3 py-5"
+        showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={30}
+        pagingEnabled
+        scrollToOverflowEnabled
+        >
         {/* Meds Card */}
         {meds?.map(med => (
           <TouchableOpacity
