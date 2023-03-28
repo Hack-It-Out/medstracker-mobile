@@ -8,7 +8,7 @@ const AppBar = () => {
   const username = 'John Doe';
 
   return (
-    <View className="p-5">
+    <View className="py-5">
       <View className="flex-row justify-between items-center">
         <View className="w-[195px]">
           <Text className="text-black font-bold text-[22px]">
