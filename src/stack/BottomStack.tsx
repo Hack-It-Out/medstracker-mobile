@@ -24,7 +24,7 @@ const BottomStack = () => {
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: 'white',
-          borderTopWidth: 0,
+          borderTopWidth: 1,
           elevation: 0,
           height: 70,
         },
