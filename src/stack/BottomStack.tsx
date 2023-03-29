@@ -2,9 +2,9 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
-  AddMedsScreen,
   CalendarScreen,
   HomeScreen,
+  MyMedsScreen,
   ProfileScreen,
 } from '../screens';
 
@@ -60,10 +60,10 @@ const BottomStack = () => {
         }}
       />
       <Tabs.Screen
-        name="AddMeds"
-        component={AddMedsScreen}
+        name="MyMeds"
+        component={MyMedsScreen}
         options={{
-          tabBarLabel: 'Add Meds',
+          tabBarLabel: 'My Meds',
           tabBarIcon: ({focused, size}) => {
             let iconName;
             size = 30;
