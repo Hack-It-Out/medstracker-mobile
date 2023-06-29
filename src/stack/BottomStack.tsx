@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
@@ -31,7 +32,7 @@ const BottomStack = () => {
           height: 70,
         },
         tabBarLabelStyle: {
-          fontSize: 13,
+          fontSize: 11,
           marginBottom: 8,
           marginTop: 0,
         },
@@ -41,9 +42,9 @@ const BottomStack = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({focused, size}) => {
             let iconName;
-            size = 30;
+            size = 24;
             // color = '';
 
             if (focused) {
@@ -66,7 +67,7 @@ const BottomStack = () => {
           tabBarLabel: 'Add Meds',
           tabBarIcon: ({focused, size}) => {
             let iconName;
-            size = 30;
+            size = 24;
 
             if (focused) {
               iconName = <AddMeds width={size} height={size} fill={active_color} />;
@@ -84,7 +85,7 @@ const BottomStack = () => {
           tabBarLabel: 'Calendar',
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
-            size = 30;
+            size = 24;
             color = 'grey';
 
             if (focused) {
@@ -103,7 +104,7 @@ const BottomStack = () => {
           tabBarLabel: 'Profile',
           tabBarIcon: ({focused, size}) => {
             let iconName;
-            size = 30;
+            size = 24;
 
             if (focused) {
               iconName = <UserIcon width={size} height={size} fill={active_color} />;
