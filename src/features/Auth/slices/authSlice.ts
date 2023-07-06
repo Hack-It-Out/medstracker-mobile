@@ -24,13 +24,20 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setSignIn: (state, action) => {
-      state.email = action.payload.email;
-      state.isLoggedIn = action.payload.isLoggedIn;
-      state.phone = action.payload.phone;
-      state.first_name = action.payload.username;
-      state.avatar = action.payload.profile_pic;
-      state.last_name = action.payload.name;
+      const {email, isLoggedIn, phone, username, profile_pic, name} =
+        action.payload;
+
+      state.email = email;
+      state.isLoggedIn = isLoggedIn;
+      state.phone = phone;
+      state.first_name = username;
+      state.avatar = profile_pic;
+      state.last_name = name;
+
+      // Update other states here
+      // state.otherState = action.payload.otherValue;
     },
+
     setSignOut: state => {
       state.email = '';
       state.phone = '';

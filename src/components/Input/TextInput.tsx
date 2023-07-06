@@ -14,7 +14,7 @@ const FormInput = ({
   label,
   secureTextEntry = false,
   value,
-  onChangeText
+  onChangeText,
 }: FormInputProps) => {
   return (
     <View className="space-y-2 my-5">

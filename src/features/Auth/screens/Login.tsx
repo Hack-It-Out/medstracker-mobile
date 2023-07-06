@@ -7,25 +7,49 @@ import {Button, Checkbox} from 'react-native-paper';
 import {BASE_URL} from '../../../config';
 import {HeartIcon} from 'react-native-heroicons/solid';
 import axios from 'axios';
+import {useDispatch} from 'react-redux';
+import {setSignIn} from '../slices';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Login() {
   // const [rememberMe, setRememberMe] = useState(false);
   const [phoneNo, setPhoneNo] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     const data = {phone_no: phoneNo, password};
 
-    axios
-      .post(`${BASE_URL}/auth/login`, data)
-      .then((response: {data: any}) => {
-        // Handle the response data
-        console.log(response.data);
-      })
-      .catch((error: any) => {
-        // Handle the error
-        console.error(error);
+    try {
+      const response = await axios.post(`${BASE_URL}/auth/signin`, data);
+
+      // Handle the response data
+      // console.log(response.data);
+
+      // Store token in AsyncStorage
+      await AsyncStorage.setItem('token', response?.data?.token);
+
+      // Fetch user details from /users/me endpoint
+      const token = response?.data?.token;
+      const userResponse = await axios.get(`${BASE_URL}/users/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+
+      console.log(userResponse.data);
+      // Store user details in AsyncStorage
+      await AsyncStorage.setItem('user', JSON.stringify(userResponse.data));
+
+      dispatch(
+        setSignIn({
+          isLoggedIn: true,
+        }),
+      );
+    } catch (error) {
+      // Handle the error
+      console.error(error);
+    }
   };
 
   return (
